@@ -42,6 +42,43 @@ class LinkedList:
             node = node.next_node
         node.next_node = new_node
 
+    """
+    Created By Meet Gandhi on 06/09/2025 | Method the add the element at the start of the linked list.
+    """
+    def add_startelement(self, new_node):
+        if not self.head:
+            self.head = new_node
+            return
+        node = self.head
+        new_node.next_node = node
+        self.head = new_node
+
+    """
+    Created By Meet Gandhi on 06/09/2025 | Method to add the Node at ith position in Linked List.
+    """
+    def add_ithelement(self,position,new_node):
+        node = self.head
+        length_list = self.len_list()
+
+        if position > length_list:
+            print("Index out of Bound")
+            return
+
+        if position == 1:
+            new_node.next_node = node
+            self.head = new_node
+            return
+
+        i = 1
+        while node and i != (position - 1):
+            node = node.next_node
+            i += 1
+
+        new_node.next_node = node.next_node
+        node.next_node = new_node
+    """
+    Created By Meet Gandhi on 06/09/2025 | Method for removing the last element from the linked list.
+    """
     def delete_lastnode(self):
         if not self.head:
             print("No element in the LinkedList")
@@ -53,17 +90,6 @@ class LinkedList:
         while node.next_node.next_node != None:
             node = node.next_node
         node.next_node = None
-
-    """
-    Created By Meet Gandhi on 06/09/2025 | Method the add the element at the start of the linked list.
-    """
-    def add_startelement(self, new_node):
-        if not self.head:
-            self.head = new_node
-            return
-        node = self.head
-        new_node.next_node = node
-        self.head = new_node
 
     """
     Created By Meet Gandhi on 06/09/2025 | Method for removing the kth element from the linked list.
