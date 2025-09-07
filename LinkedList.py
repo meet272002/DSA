@@ -146,3 +146,26 @@ class LinkedList:
                     print(f"{value} does not exists")
                 else:
                     node.next_node = temp.next_node
+    """
+    Created by Meet Gandhi on 07/09/2025 | Method for reversing the given linked list.
+    """
+    def rotate_linkedlist(self):
+        # node = self.head
+        prev = None
+        # temp = node.next_node
+        curr = self.head
+
+        # while temp:
+        #     node.next_node = temp.next_node
+        #     temp.next_node = node
+        #     start_node = temp
+        #     temp = node.next_node
+        #     node = start_node
+
+        while curr:
+            nxt = curr.next_node
+            curr.next_node = prev
+            prev = curr
+            curr = nxt
+
+        self.head = prev
