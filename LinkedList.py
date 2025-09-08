@@ -169,3 +169,29 @@ class LinkedList:
             curr = nxt
 
         self.head = prev
+
+    """
+    Created by Meet Gandhi on 08/09/2025 | Method to delete the alternative the nodes at even position.
+    """
+    def delete_alternative(self):
+        node = self.head
+        if not node:
+            print("No element exists in linked list.")
+            return
+        if not node.next_node:
+            print("ONly one node exists in linked list.")
+            return
+        temp = node
+        while temp:
+            temp.next_node = temp.next_node.next_node
+            temp = temp.next_node
+
+    """
+    Created by Meet Gandhi on 08/09/2025 | Method to add 2 given number in linked list.
+    """
+    def add_numbers(self):
+        value_1 = self.head.value
+        value_2 = self.head.next_node.value
+
+        self.head.value = value_1 + value_2
+        self.head.next_node = None
